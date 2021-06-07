@@ -1,11 +1,11 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 01:31:41
- * @LastEditTime: 2021-06-07 14:36:43
+ * @LastEditTime: 2021-06-07 17:56:51
  * @FilePath: /vue-music-next/src/views/recommend.vue
 -->
 <template>
-  <div class="recommend">
+  <div class="recommend" v-loading="loading">
     <scroll class="recommend-content">
       <div>
         <div class="slider-wrapper">
@@ -14,8 +14,10 @@
           </div>
         </div>
         <div class="recommend-list">
-          <h1 class="list-title" v-show="!loading">热门歌单推荐</h1>
-          <ul>
+          <h1 class="list-title" v-show="!loading && !noResult">
+            热门歌单推荐
+          </h1>
+          <ul v-no-result="noResult">
             <li
               v-for="item in albums"
               class="item"
@@ -59,12 +61,16 @@ export default {
   computed: {
     loading() {
       return !this.sliders.length && !this.albums.length
+    },
+    noResult() {
+      return !this.loading && !this.albums.length
     }
   },
   async created() {
     const result = await getRecommend()
     this.sliders = result.sliders
-    this.albums = result.albums
+    // this.albums = result.albums
+    this.albums = []
   },
   methods: {}
 }
