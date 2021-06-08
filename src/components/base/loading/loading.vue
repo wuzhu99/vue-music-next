@@ -1,7 +1,7 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 15:47:29
- * @LastEditTime: 2021-06-07 17:44:31
+ * @LastEditTime: 2021-06-07 23:57:55
  * @FilePath: /vue-music-next/src/components/base/loading/loading.vue
 -->
 <template>
@@ -31,9 +31,9 @@ export default {
 
 <style lang="scss" scoped>
 .loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  margin-top: 50%;
+  margin-left: 50%;
   transform: translate3d(-50%, -50%, 0);
   .loading-content {
     text-align: center;

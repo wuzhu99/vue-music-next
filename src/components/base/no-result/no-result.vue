@@ -1,7 +1,7 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 16:57:22
- * @LastEditTime: 2021-06-07 17:50:59
+ * @LastEditTime: 2021-06-07 23:29:24
  * @FilePath: /vue-music-next/src/components/base/no-result/no-result.vue
 -->
 <template>
@@ -18,8 +18,8 @@ export default {
   name: 'no-result',
   data() {
     return {
-      title: '抱歉，没有结果',
-      minHeight: '200px'
+      title: '抱歉，没有结果'
+      // minHeight: '200px'
     }
   },
   methods: {
@@ -32,9 +32,9 @@ export default {
 
 <style lang="scss" scoped>
 .no-result {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  margin-top: 50%;
+  margin-left: 50%;
   transform: translate3d(-50%, -50%, 0);
   .no-result-content {
     text-align: center;

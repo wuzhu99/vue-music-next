@@ -1,7 +1,7 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 13:50:24
- * @LastEditTime: 2021-06-07 14:05:52
+ * @LastEditTime: 2021-06-08 14:54:59
  * @FilePath: /vue-music-next/src/components/base/scroll/scroll.vue
 -->
 <template>
@@ -20,12 +20,17 @@ export default {
     click: {
       type: Boolean,
       default: true
+    },
+    probeType: {
+      type: Number,
+      default: 0
     }
   },
-  setup(props) {
+  emits: ['scroll'],
+  setup(props, { emit }) {
     const rootRef = ref(null)
-    useScroll(rootRef, props)
-    return { rootRef }
+    const scroll = useScroll(rootRef, props, emit)
+    return { rootRef, scroll }
   }
 }
 </script>

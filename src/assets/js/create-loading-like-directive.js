@@ -17,9 +17,9 @@ export default function createLoadingLikeDirective(Comp) {
       if (typeof title !== 'undefined') {
         instance.setTitle(title)
       }
-      if (instance.minHeight) {
-        el.style['min-height'] = instance.minHeight
-      }
+      // if (instance.minHeight) {
+      //   el.style['min-height'] = instance.minHeight
+      // }
       if (binding.value) {
         append(el)
       }

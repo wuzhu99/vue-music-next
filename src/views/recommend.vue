@@ -1,7 +1,7 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 01:31:41
- * @LastEditTime: 2021-06-07 17:56:51
+ * @LastEditTime: 2021-06-07 23:59:54
  * @FilePath: /vue-music-next/src/views/recommend.vue
 -->
 <template>
@@ -17,7 +17,7 @@
           <h1 class="list-title" v-show="!loading && !noResult">
             热门歌单推荐
           </h1>
-          <ul v-no-result="noResult">
+          <ul v-no-result:[noResultText]="noResult">
             <li
               v-for="item in albums"
               class="item"
@@ -55,7 +55,8 @@ export default {
   data() {
     return {
       sliders: [],
-      albums: []
+      albums: [],
+      noResultText: '暂无推荐'
     }
   },
   computed: {
@@ -69,8 +70,7 @@ export default {
   async created() {
     const result = await getRecommend()
     this.sliders = result.sliders
-    // this.albums = result.albums
-    this.albums = []
+    this.albums = result.albums
   },
   methods: {}
 }
