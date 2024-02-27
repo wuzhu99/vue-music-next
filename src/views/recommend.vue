@@ -1,7 +1,7 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 01:31:41
- * @LastEditTime: 2021-06-07 23:59:54
+ * @LastEditTime: 2021-06-08 16:28:08
  * @FilePath: /vue-music-next/src/views/recommend.vue
 -->
 <template>

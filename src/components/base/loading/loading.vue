@@ -1,11 +1,11 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 15:47:29
- * @LastEditTime: 2021-06-07 23:57:55
+ * @LastEditTime: 2021-06-08 16:27:16
  * @FilePath: /vue-music-next/src/components/base/loading/loading.vue
 -->
 <template>
-  <div class="loading" ref="rootRef">
+  <div class="loading">
     <div class="loading-content">
       <img width="24" height="24" src="./loading.gif" />
       <p class="desc">{{ title }}</p>
@@ -14,16 +14,18 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   name: 'loading',
-  data() {
-    return {
-      title: '正在载入...'
-    }
-  },
-  methods: {
-    setTitle(title) {
+  setup() {
+    const title = ref('正在载入...')
+
+    function setTitle(title) {
       this.title = title
+    }
+    return {
+      title,
+      setTitle
     }
   }
 }
@@ -31,9 +33,9 @@ export default {
 
 <style lang="scss" scoped>
 .loading {
-  position: relative;
-  margin-top: 50%;
-  margin-left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate3d(-50%, -50%, 0);
   .loading-content {
     text-align: center;

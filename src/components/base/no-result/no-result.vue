@@ -1,11 +1,11 @@
 <!--
  * @Author: wuz
  * @Date: 2021-06-07 16:57:22
- * @LastEditTime: 2021-06-07 23:29:24
+ * @LastEditTime: 2021-06-08 16:27:25
  * @FilePath: /vue-music-next/src/components/base/no-result/no-result.vue
 -->
 <template>
-  <div class="no-result" ref="rootRef">
+  <div class="no-result">
     <div class="no-result-content">
       <div class="icon"></div>
       <p class="text">{{ title }}</p>
@@ -14,17 +14,18 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { ref } from 'vue'
 export default {
   name: 'no-result',
-  data() {
-    return {
-      title: '抱歉，没有结果'
-      // minHeight: '200px'
-    }
-  },
-  methods: {
-    setTitle(title) {
+  setup() {
+    const title = ref('抱歉，没有结果')
+
+    function setTitle(title) {
       this.title = title
+    }
+    return {
+      title,
+      setTitle
     }
   }
 }

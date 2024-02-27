@@ -1,3 +1,9 @@
+/*
+ * @Author: wuz
+ * @Date: 2021-06-07 15:50:48
+ * @LastEditTime: 2021-06-08 16:22:25
+ * @FilePath: /vue-music-next/src/assets/js/create-loading-like-directive.js
+ */
 import { createApp } from 'vue'
 import { addClass, removeClass } from '@/assets/js/dom'
 
@@ -17,9 +23,6 @@ export default function createLoadingLikeDirective(Comp) {
       if (typeof title !== 'undefined') {
         instance.setTitle(title)
       }
-      // if (instance.minHeight) {
-      //   el.style['min-height'] = instance.minHeight
-      // }
       if (binding.value) {
         append(el)
       }

@@ -1,7 +1,7 @@
 /*
  * @Author: wuz
  * @Date: 2021-06-07 01:31:41
- * @LastEditTime: 2021-06-07 11:12:59
+ * @LastEditTime: 2021-06-08 16:39:51
  * @FilePath: /vue-music-next/src/router/index.js
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -20,7 +20,16 @@ const routes = [
   {
     path: '/singer',
     name: 'Singer',
-    component: () => import('@/views/singer' /* webpackChunkName: "singer" */)
+    component: () => import('@/views/singer' /* webpackChunkName: "singer" */),
+    children: [
+      {
+        path: ':id',
+        component: () =>
+          import(
+            '@/views/singer-detail' /* webpackChunkName: "singer-detail" */
+          )
+      }
+    ]
   },
   {
     path: '/top-list',
