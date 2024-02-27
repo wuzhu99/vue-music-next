@@ -8,7 +8,7 @@
   <div class="singer-detail">
     <music-list
       :songs="songs"
-      :title="title"11
+      :title="title"
       :pic="pic"
       :loading="loading"
     ></music-list>
